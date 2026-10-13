@@ -1,0 +1,18 @@
+=== T1a DIAGNOSTIC (captured from Flutter debug console) ===
+Device: emulator-5554 (Android 14, API 34, x86_64)
+Action: Ran version-2 helper over existing version-1 database
+
+user_version: [{user_version: 2}]
+foreign_keys: [{foreign_keys: 1}]
+foreign_key_list(cards): [{id: 0, seq: 0, table: folders, from: folder_id, to: id, on_update: NO ACTION, on_delete: CASCADE, match: NONE}]
+index_list(cards): [{seq: 0, name: idx_cards_folder_id, unique: 0, origin: c, partial: 0}]
+tables: [{name: android_metadata}, {name: cards}, {name: folders}, {name: my_table}, {name: sqlite_sequence}]
+my_table rows: [{_id: 2, name: River, age: 35}, {_id: 3, name: Acorn, age: 0}, {_id: 4, name: Oak, age: 130}]
+
+Interpretation:
+- user_version = 2 confirms the schema bump from v1 to v2.
+- foreign_keys = 1 confirms PRAGMA foreign_keys = ON was applied.
+- folders and cards tables exist alongside my_table.
+- idx_cards_folder_id exists on cards.folder_id.
+- All 3 Part I rows retain their original _id, name, and age.
+=== END ===
